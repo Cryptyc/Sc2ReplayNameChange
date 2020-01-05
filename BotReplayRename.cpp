@@ -179,7 +179,7 @@ int ReplaceString(const std::string &filename, const std::string &search_term1, 
 
 		std::streamsize chars_read;
 		size_t search_term_size1 = search_term1.size();
-		size_t search_term_size2 = search_term1.size();
+		size_t search_term_size2 = search_term2.size();
 
 		file.read(buffer, file_size);
 		size_t new_size = file_size + replace_term1.size() - search_term1.size() + replace_term2.size() - search_term2.size();
@@ -220,7 +220,7 @@ int ReplaceString(const std::string &filename, const std::string &search_term1, 
 			CurrentPos--;
 			if (NewSize % 2 == 1)
 			{
-				newbuffer[CurrentPos] == 0x01;
+				newbuffer[CurrentPos] = 0x01;
 				NewSize--;
 			}
 			else
